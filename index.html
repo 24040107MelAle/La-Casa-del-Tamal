@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Casa del Tamal | Tamales tradicionales de Saltillo</title>
+<meta name="description" content="Tamales tradicionales de Saltillo: pollo, puerco, queso y frijoles. Docena a $140. Pedidos para eventos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --amarillo:#F7C21C; --amarillo-claro:#FFE27A; --crema:#FFF6D8;
+  --rojo:#A3151F; --rosa:#E0457B; --verde:#2E8B57; --cafe:#3A1C0C;
+  --titulo:'Alfa Slab One',Georgia,serif; --texto:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--texto);color:var(--cafe);background:var(--crema);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* Papel picado */
+.picado{height:26px;background:
+  linear-gradient(135deg,var(--rosa) 25%,transparent 25%) -13px 0,
+  linear-gradient(225deg,var(--verde) 25%,transparent 25%) -13px 0,
+  linear-gradient(315deg,var(--rojo) 25%,transparent 25%),
+  linear-gradient(45deg,#2B7FB8 25%,transparent 25%);
+  background-size:26px 26px;background-color:var(--amarillo-claro)}
+
+/* Navegación */
+header{position:sticky;top:0;z-index:10;background:var(--rojo);color:#fff}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1080px;margin:0 auto}
+.marca{font-family:var(--titulo);font-size:1.15rem;text-decoration:none;white-space:nowrap}
+nav ul{display:flex;gap:22px;list-style:none}
+nav ul a{text-decoration:none;font-weight:800;font-size:.95rem}
+nav ul a:hover{color:var(--amarillo-claro)}
+@media(max-width:640px){nav ul{display:none}}
+
+/* Portada */
+.hero{background:var(--amarillo);padding:56px 0 64px;text-align:center}
+.hero .wrap{display:grid;gap:28px;justify-items:center}
+.hero img{width:min(300px,70vw);border-radius:50%;border:6px solid var(--crema);box-shadow:0 10px 0 var(--rojo)}
+h1{font-family:var(--titulo);font-weight:400;font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;color:var(--rojo)}
+.hero p{max-width:520px;font-size:1.15rem;font-weight:600}
+.botones{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:800;text-decoration:none;border:3px solid var(--rojo);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-rojo{background:var(--rojo);color:#fff}
+.btn-claro{background:transparent;color:var(--rojo)}
+
+/* Secciones */
+section{padding:72px 0}
+h2{font-family:var(--titulo);font-weight:400;font-size:clamp(1.7rem,4.5vw,2.5rem);color:var(--rojo);text-align:center;margin-bottom:10px}
+.sub{text-align:center;max-width:560px;margin:0 auto 40px}
+
+/* Menú */
+#menu{background:var(--crema)}
+.tamales{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.tamal{background:#fff;border:3px solid var(--cafe);border-radius:18px 18px 40px 18px;padding:26px 22px}
+.tamal h3{font-family:var(--titulo);font-weight:400;font-size:1.35rem;color:var(--rojo);margin-bottom:6px}
+.precio{margin:44px auto 0;max-width:420px;background:var(--rojo);color:#fff;border-radius:22px;padding:22px;text-align:center}
+.precio strong{display:block;font-family:var(--titulo);font-weight:400;font-size:3rem;color:var(--amarillo);line-height:1.1}
+
+/* Eventos */
+#eventos{background:var(--amarillo)}
+.eventos{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.eventos h2,.eventos .sub{text-align:left;margin-left:0}
+.eventos ul{list-style:none;display:grid;gap:10px;margin-top:8px}
+.eventos li::before{content:"✦ ";color:var(--rojo)}
+form{background:var(--crema);border:3px solid var(--cafe);border-radius:20px;padding:26px;display:grid;gap:14px}
+label{font-weight:800;font-size:.9rem;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:11px 12px;border:2px solid var(--cafe);border-radius:10px;background:#fff;color:var(--cafe)}
+textarea{min-height:80px;resize:vertical}
+form .btn{cursor:pointer;font:inherit;font-weight:800;text-align:center}
+@media(max-width:800px){.eventos{grid-template-columns:1fr}}
+
+/* Ubicación */
+.ubicacion{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:stretch}
+.datos{display:grid;gap:18px;align-content:start}
+.datos h3{font-family:var(--titulo);font-weight:400;color:var(--rojo);font-size:1.2rem}
+.mapa{border:3px solid var(--cafe);border-radius:20px;overflow:hidden;min-height:340px;box-shadow:8px 8px 0 var(--rojo)}
+.mapa iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+@media(max-width:800px){.ubicacion{grid-template-columns:1fr}}
+
+/* Pie */
+footer{background:var(--cafe);color:var(--crema);text-align:center;padding:30px 20px}
+footer .marca{color:var(--amarillo);font-size:1.3rem}
+
+/* WhatsApp flotante */
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;background:#25D366;color:#fff;font-weight:800;text-decoration:none;padding:13px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav aria-label="Principal">
+    <a class="marca" href="#inicio">La Casa del Tamal</a>
+    <ul>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="picado" aria-hidden="true"></div>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <img src="logo.png" alt="Logotipo de La Casa del Tamal, tamales tradicionales de Saltillo">
+      <h1>Tamales tradicionales de Saltillo</h1>
+      <p>Hechos al estilo de siempre, calientitos y listos para compartir en la mesa de tu casa.</p>
+      <div class="botones">
+        <a class="btn btn-rojo" href="https://wa.me/528442133788?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20tamales" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn btn-claro" href="#menu">Ver menú</a>
+      </div>
+    </div>
+  </div>
+  <div class="picado" aria-hidden="true"></div>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>Nuestros tamales</h2>
+      <p class="sub">Cuatro sabores tradicionales. Escoge tu favorito o combina tu docena.</p>
+      <div class="tamales">
+        <article class="tamal"><h3>Pollo</h3><p>Suave y jugoso, con el sabor casero de siempre.</p></article>
+        <article class="tamal"><h3>Puerco</h3><p>Carne de puerco en salsa, el clásico de la mesa.</p></article>
+        <article class="tamal"><h3>Queso</h3><p>Tamal de queso derretido, ideal para quien no come carne.</p></article>
+        <article class="tamal"><h3>Frijoles</h3><p>Sencillo, sabroso y lleno de tradición.</p></article>
+      </div>
+      <div class="precio">
+        <span>Precio por docena</span>
+        <strong>$140</strong>
+        <span>Pesos mexicanos</span>
+      </div>
+    </div>
+  </section>
+  <div class="picado" aria-hidden="true"></div>
+
+  <section id="eventos">
+    <div class="wrap eventos">
+      <div>
+        <h2>Pedidos para eventos</h2>
+        <p class="sub">Haz de tu reunión algo especial con tamales tradicionales para todos tus invitados.</p>
+        <ul>
+          <li>Cumpleaños y bautizos</li>
+          <li>Posadas y fiestas de fin de año</li>
+          <li>Reuniones de oficina y familiares</li>
+          <li>Pedidos grandes con anticipación</li>
+        </ul>
+      </div>
+      <form id="form-evento">
+        <label>Tu nombre
+          <input type="text" id="nombre" required autocomplete="name">
+        </label>
+        <label>Tipo de evento
+          <select id="tipo" required>
+            <option value="">Selecciona una opción</option>
+            <option>Cumpleaños</option>
+            <option>Bautizo o comunión</option>
+            <option>Posada o fiesta de fin de año</option>
+            <option>Reunión de oficina</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Fecha del evento
+          <input type="date" id="fecha" required>
+        </label>
+        <label>Docenas aproximadas
+          <input type="number" id="docenas" min="1" required>
+        </label>
+        <label>Comentarios (opcional)
+          <textarea id="notas" placeholder="Sabores, hora de entrega, dirección..."></textarea>
+        </label>
+        <button class="btn btn-rojo" type="submit">Enviar solicitud por WhatsApp</button>
+      </form>
+    </div>
+  </section>
+  <div class="picado" aria-hidden="true"></div>
+
+  <section id="ubicacion">
+    <div class="wrap">
+      <h2>Visítanos</h2>
+      <p class="sub">Te esperamos con tamales recién hechos.</p>
+      <div class="ubicacion">
+        <div class="datos">
+          <div><h3>Dirección</h3><p>Blvrd. Minería, Bonanza<br>25296 Saltillo, Coahuila</p></div>
+          <div><h3>Horario</h3><p>De 4:00 pm a 10:00 pm</p></div>
+          <div><h3>Teléfono</h3><p><a href="tel:+528442133788">844 213 3788</a></p></div>
+          <a class="btn btn-rojo" href="https://www.google.com/maps/search/?api=1&query=Blvrd+Mineria+Bonanza+25296+Saltillo+Coahuila" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <div class="mapa">
+          <iframe title="Mapa de La Casa del Tamal en Saltillo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Blvrd+Mineria+Bonanza+25296+Saltillo+Coahuila&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="picado" aria-hidden="true"></div>
+<footer>
+  <p class="marca">La Casa del Tamal</p>
+  <p>Tamales tradicionales de Saltillo · 844 213 3788</p>
+  <p><small>© <span id="anio"></span> La Casa del Tamal. Todos los derechos reservados.</small></p>
+</footer>
+
+<a class="wa" href="https://wa.me/528442133788?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20tamales" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">WhatsApp</a>
+
+<script>
+document.getElementById('anio').textContent = new Date().getFullYear();
+document.getElementById('fecha').min = new Date().toISOString().split('T')[0];
+document.getElementById('form-evento').addEventListener('submit', function(e){
+  e.preventDefault();
+  var g = function(id){ return document.getElementById(id).value.trim(); };
+  var msg = 'Hola, quiero cotizar tamales para un evento.\n' +
+    'Nombre: ' + g('nombre') + '\n' +
+    'Evento: ' + g('tipo') + '\n' +
+    'Fecha: ' + g('fecha') + '\n' +
+    'Docenas aproximadas: ' + g('docenas') +
+    (g('notas') ? '\nComentarios: ' + g('notas') : '');
+  window.open('https://wa.me/528442133788?text=' + encodeURIComponent(msg), '_blank');
+});
+
+</script>
+</body>
+</html>
